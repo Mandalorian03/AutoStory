@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Save up to 80% on Auto Insurance with Instant Quotes. Compare multiple providers and get the best rates today!">
+    <meta property="og:title" content="Save Up to 80% on Auto Insurance - Instant Quotes">
+    <meta property="og:description" content="Get instant auto insurance quotes and save up to 80%!">
+    <meta property="og:image" content="your-image-url.jpg">
+    <meta property="og:url" content="your-website-url">
+    <link rel="icon" href="favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-color: #2563EB;
+            --secondary-color: #10B981;
+            --background-light: #F3F4F6;
+            --text-dark: #1F2937;
+            --warning-bg: #FEF3C7;
+            --warning-border: #F59E0B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .testimonial-heading {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: .5rem;
+            /* Ensures space between heading and swiper */
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+
+        .ticker-wrap {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--warning-bg);
+            border-bottom: 2px solid var(--warning-border);
+            z-index: 1000;
+            overflow: hidden;
+            padding: 10px 0;
+        }
+
+        .ticker {
+            display: inline-block;
+            white-space: nowrap;
+            animation: ticker 15s linear infinite;
+        }
+
+        @keyframes ticker {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 1rem;
+        }
+
+        .testimonial-section {
+            margin-bottom: 2rem;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            margin-top: 25px;
+        }
+
+        /* Hero-like image */
+        .testimonial-image {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            object-fit: cover;
+            /* Ensure the image covers the space */
+            border-radius: 15px;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section {
+            font-size: 1.8rem;
+            background: #0a609d;
+            border-radius: 15px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .cta-section h1 span {
+            font-weight: bold;
+        }
+
+        .cta-subtext {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .cta-price {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .cta-price span {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .cta-question {
+            font-size: 1.75rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+            background-color: white;
+            color: var(--primary-color);
+            padding: 0.75rem 3rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.25rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 180px;
+        }
+
+        .cta-button:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-3px);
+        }
+
+        .cta-security {
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .lock-icon {
+            display: inline-block;
+            font-size: 1rem;
+        }
+
+        .cta-image {
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .faq-section {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            margin-top: 1rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #E5E7EB;
+            padding: 1rem 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            display: none;
+            padding-top: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .faq-answer.show {
+            display: block;
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 4rem 1rem;
+            }
+
+            .cta-section {
+                padding: 2rem 1rem;
+            }
+
+            .cta-section h1 {
+                font-size: 1.75rem;
+            }
+
+            .cta-subtext {
+                font-size: 1rem;
+            }
+
+            .cta-price {
+                font-size: 1.25rem;
+            }
+
+            .cta-question {
+                font-size: 1.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .cta-button {
+                width: 80%;
+            }
+
+            .swiper-slide {
+                padding: 1rem;
+            }
+
+            .testimonial-image {
+                max-width: 100%;
+                height: 200px;
+                /* Limit image height on mobile */
+            }
+        }
+
+        .featured__section {
+    text-align: center;
+    margin-top: 2rem;
+    background: #F8FAFC;
+    padding: 1.5rem 0;
+    margin-left: -1rem;
+    margin-right: -1rem;
+}
+
+.featured__icon {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: nowrap;
+}
+
+.featured__icon li {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #111827;
+    position: relative;
+    padding: 0 1rem;
+    min-width: 100px; /* Ensures minimum space */
+}
+/* 
+.featured__icon li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: -1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 50%;
+    width: 1px;
+    background-color: #D1D5DB;
+} */
+
+/* Default Desktop Size */
+.featured__icon img {
+    display: block;
+    margin: 0 auto;
+    width: 120px;
+    height: 36px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .featured__icon {
+        gap: 1rem; /* Reduce gap */
+    }
+    .featured__icon img {
+        width: 100px; /* Reduce size slightly */
+        height: 30px;
+    }
+    .featured__icon li {
+        font-size: 0.9rem; /* Slightly smaller text */
+        line-height: 1.25;
+    }
+}
+
+@media (max-width: 768px) {
+    .featured__icon {
+        gap: 0.5rem; /* Reduce gap */
+    }
+    .featured__icon img {
+        width: 90px;
+        height: 28px;
+        margin-bottom: 3px;
+    }
+    .featured__icon li {
+        font-size: 0.85rem; /* Adjust text */
+    }
+}
+
+@media (max-width: 480px) {
+    .featured__icon {
+        gap: 0.3rem; /* Reduce gap */
+    }
+    .featured__icon img {
+        width: 80px;
+        height: 24px;
+    }
+    .featured__icon li {
+        font-size: 0.8rem; /* Further adjust text */
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="ticker-wrap">
+        <div class="ticker">
+            ⚠️ Warning: Big Insurance Companies Don't Want You to See This Secret | Limited Time Offer Ends Soon | Save
+            Up to 80% on Auto Insurance
+        </div>
+    </div>
+
+    <div class="container">
+        <section class="testimonial-section">
+            <h1 class="testimonial-heading">
+                This Viral Story Is Changing American Lives. <a href="#cta-container-box">Here's How...</a>
+            </h1>
+            <div class="swiper testimonial-swiper">
+
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div>
+                            <img src="imagesLP/1.png" alt="Testimonial - Sarah M." class="testimonial-image"
+                                loading="lazy">
+                            <blockquote>
+                                "I was paying $300 a month. Now, just $45. This saved me $2,400 a year!"
+                                <footer class="mt-2 font-bold">- Jack </footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div>
+                            <img src="imagesLP/2.png" alt="Testimonial - Sarah M." class="testimonial-image"
+                                loading="lazy">
+                            <blockquote>
+                                "I was paying $300 a month. Now, just $45. This saved me $2,400 a year!"
+                                <footer class="mt-2 font-bold">- Sarah M., Uber Driver</footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div>
+                            <img src="imagesLP/3.png" alt="Testimonial - Sarah M." class="testimonial-image"
+                                loading="lazy">
+                            <blockquote>
+                                "I was paying $300 a month. Now, just $45. This saved me $2,400 a year!"
+                                <footer class="mt-2 font-bold">- Sarah M., Uber Driver</footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div>
+                            <img src="imagesLP/4.png" alt="Testimonial - Sarah M." class="testimonial-image"
+                                loading="lazy">
+                            <blockquote>
+                                "I was paying $300 a month. Now, just $45. This saved me $2,400 a year!"
+                                <footer class="mt-2 font-bold">- Sarah M., </footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div>
+                            <img src="imagesLP/Sarah.png" alt="Testimonial - Sarah M." class="testimonial-image"
+                                loading="lazy">
+                            <blockquote>
+                                "I was paying $300 a month. Now, just $45. This saved me $2,400 a year!"
+                                <footer class="mt-2 font-bold">- Sarah M., Uber Driver</footer>
+                            </blockquote>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="cta-container-box"class="cta-section">
+            <div class="cta-container">
+                <h1>Compare Now & Get Auto Insurance Rates Starting From <span>$19.99</h1>
+
+                <p class="cta-question">Are You Currently Insured?</p>
+                <div class="cta-buttons">
+                    <button class="cta-button yes">YES</button>
+                    <button class="cta-button no">NO</button>
+                </div>
+
+                <p class="cta-security">
+                    <span class="lock-icon">🔒</span> We keep all your information 100% secure & confidential, always.
+                </p>
+
+                <!-- Illustration -->
+                <img src="imagesLP/banner-img.jpg" alt="Car and City Illustration" class="cta-image">
+            </div>
+        </section>
+
+        </section> <!-- Closing of CTA Section -->
+
+        <!-- Add Featured Section Here -->
+        <div class="featured__section">
+            <div class="container">
+                <ul class="featured__icon">
+                    <li>
+                        <img src="imagesLP/rate_icon1.png" alt="icon" width="219" height="72">
+                        <p>Based On 22,000+ Reviews</p>
+                    </li>
+                    <li style=" min-width: 1px;min-height: 50px; padding:0; background-color: #D1D5DB;"></li>
+                    <li>
+                        <img src="imagesLP/rate_icon2.png" alt="icon" width="414" height="72">
+                        <p>Based On 46,000+ Reviews</p>
+                    </li>
+                    <li style=" min-width: 1px; min-height: 50px; padding:0; background-color: #D1D5DB;"></li>
+                    <li>
+                        <img src="imagesLP/rate_icon3.png" alt="icon" width="270" height="72">
+                        <p>Based On 31,000+ Reviews</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <section class="faq-section">
+            <h2 class="text-center mb-6">Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How does this work?</h3>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    We compare quotes from multiple insurance providers to find you the lowest rate based on your
+                    specific vehicle and driving profile.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Is my information safe?</h3>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Absolutely. We use bank-level encryption and never sell your personal information to third parties.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How quickly can I get a quote?</h3>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Most users receive their personalized quote within 2-3 minutes of submitting their information.
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize Swiper
+        new Swiper('.testimonial-swiper', {
+            loop: true,
+            autoplay: {
+                delay: 3000,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            }
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.classList.toggle('show');
+            });
+        });
+    </script>
+</body>
+
+</html>
